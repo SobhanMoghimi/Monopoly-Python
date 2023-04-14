@@ -9,7 +9,7 @@ class Board:
         Property(cell_number=1, name="GO", property_type=PropertyTypeEnum.GO),
         Property(cell_number=2, name="Rio", property_type=PropertyTypeEnum.LANDMARK, country=CountryTypeEnum.BRAZIL,
                  price=60, rent=2),
-        Property(cell_number=3, name="Community Chest", property_type=PropertyTypeEnum.CHEST, price=60, rent=4),
+        Property(cell_number=3, name="Community Chest", property_type=PropertyTypeEnum.CHEST),
         Property(cell_number=4, name="Salvador", property_type=PropertyTypeEnum.LANDMARK,
                  country=CountryTypeEnum.BRAZIL, price=40, rent=6),
         Property(cell_number=5, name="Income Tax", property_type=PropertyTypeEnum.INCOME_TAX),
@@ -40,7 +40,7 @@ class Board:
 
         Property(cell_number=22, name="Moscow", property_type=PropertyTypeEnum.LANDMARK,country=CountryTypeEnum.RUSSIA, price=220, rent=18),
         Property(cell_number=23, name="Saint Petersburg", property_type=PropertyTypeEnum.LANDMARK,country=CountryTypeEnum.RUSSIA, price=240, rent=20),
-        Property(cell_number=24, name="Kazan", property_type=PropertyTypeEnum.AIRPORT,country=CountryTypeEnum.RUSSIA, price=20, rent=25),
+        Property(cell_number=24, name="Kazan", property_type=PropertyTypeEnum.LANDMARK,country=CountryTypeEnum.RUSSIA, price=200, rent=25),
 
         Property(cell_number=25, name="Paris", property_type=PropertyTypeEnum.LANDMARK, country=CountryTypeEnum.FRANCE, price=260, rent=22),
         Property(cell_number=26, name="Lyon", property_type=PropertyTypeEnum.LANDMARK, country=CountryTypeEnum.FRANCE, price=260, rent=22),

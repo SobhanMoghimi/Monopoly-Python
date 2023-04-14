@@ -9,6 +9,7 @@ class PropertyTypeEnum:
     GO_TO_JAIL = "GO_TO_JAIL"
     JUST_VISITING = "JUST_VISITING"
 
+
 class CountryTypeEnum:
     IRAN = "IRAN"
     BRAZIL = "BRAZIL"
@@ -18,9 +19,3 @@ class CountryTypeEnum:
     ENGLAND = "ENGLAND"
     GERMANY = "GERMANY"
     FRANCE = "FRANCE"
-
-
-
-
-
-

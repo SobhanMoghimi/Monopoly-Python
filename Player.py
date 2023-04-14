@@ -16,6 +16,11 @@ class Player:
         self.doubled_dice_times = 0
         self.is_visiting = False
 
+    def net_worth(self, props) -> int:
+        return self.balance + sum(
+            [props[_property.cell_number - 1].price for _property in self.owned_property_list]) + sum(
+            [props[_property.cell_number - 1].rent for _property in self.owned_property_list])
+
     def move_player(self, steps: int):
         self.position = (self.position + steps)
         if self.position >= 37:
@@ -25,12 +30,8 @@ class Player:
             print("Congrats! {} Got $200 for moving on the GO property.", self.name)
 
     def pay_rent(self, rent, owner):
-        if self.balance >= rent:
-            self.balance -= rent
-            owner.balance += rent
-            return True
-        else:
-            return False
+        self.balance -= rent
+        owner.balance += rent
 
     def apply_tax(self, tax_type):
         if tax_type == PropertyTypeEnum.INCOME_TAX:
@@ -45,6 +46,7 @@ class Player:
 
     def go_to_jail(self):
         self.position = 10
+        self.prison_time = 1
 
     def handle_jail(self):
         if self.prison_time == 0:
@@ -113,7 +115,6 @@ class Player:
             return
         else:
             print("Your balance is less that zero; Sell properties to avoid bankruptcy.")
-            self.handle_negative_balance()
 
     def work_with_properties(self):
         print("You're Balance is {}.\n".format(self.balance))
@@ -141,6 +142,7 @@ class Player:
                 print("Wrong input. Try Again...")
 
     def work_with_a_property(self, property_index: int):
+        print("You're Balance is {}.\n".format(self.balance))
         working_property = None
         for _property in self.owned_property_list:
             if _property.cell_number == property_index:
@@ -235,18 +237,18 @@ class Player:
         for owned_property in self.owned_property_list:
             print(owned_property)
 
-    def handle_negative_balance(self):
-        # todo: change!
-        while self.balance < 0:
-            print("Select a property to sell, downgrade or mortgage")
-            i = 0
-            for owned_property in self.owned_property_list:
-                print('property{} = ' + owned_property, i)
-                i += 1
-            while i > len(self.owned_property_list) or i < 0:
-                input_property = int(input(""))
-                if input_property < 0 or input_property >= len(self.owned_property_list):
-                    ConsoleLog.print_invalid_input()
+    # def handle_negative_balance(self):
+    #     # todo: change!
+    #     while self.balance < 0:
+    #         print("Select a property to sell, downgrade or mortgage")
+    #         i = 0
+    #         for owned_property in self.owned_property_list:
+    #             print('property{} = ' + owned_property, i)
+    #             i += 1
+    #         while i > len(self.owned_property_list) or i < 0:
+    #             input_property = int(input(""))
+    #             if input_property < 0 or input_property >= len(self.owned_property_list):
+    #                 ConsoleLog.print_invalid_input()
 
     def set_doubled_dice_times(self, times: int) -> None:
         self.doubled_dice_times = times
