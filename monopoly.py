@@ -76,7 +76,7 @@ class Monopoly:
                 _, best_action = expectiminimax(self.current_player, self)
                 self.take_action(best_action)
             else:
-            # Are you in Prison?!
+                # Are you in Prison?!
                 if self.player_1.prison_time > 0:
                     ConsoleLog.print_in_prison()
 
@@ -134,7 +134,6 @@ class Monopoly:
             else:
                 self.switch_player()
         print(f"{self.players[0 if self.current_player else 1].name} Won!")
-
 
     def take_action(self, action: int):
         # Updating the game state based on the action taken by the current player
